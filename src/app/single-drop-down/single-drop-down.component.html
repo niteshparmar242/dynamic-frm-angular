@@ -1,0 +1,25 @@
+<div class="single-drop-down">
+  <div class="label">{{formField?.label}}@if(formField?.required){<span class="red-txt">*</span>}</div>
+  @if (toolMessage) {
+    <div class="tl-tp">
+      <app-tool-tip [toolMessage]="toolMessage"></app-tool-tip>
+  </div>
+  }
+  <div class="input-container" (click)="openModal()">
+    @if(!selectedValue()){<span>{{formField?.placeholder}}</span>}
+    <div>{{ selectedValue() }}</div>
+    <div class="toggle-icon" [class.up]="modalVisible">&#9650;</div>
+  </div>
+  <app-search-modal
+    (selectedItemHandler)="getSelectedValue($event)"
+    (closeModalHandler)="closeModal($event)"
+    [class.modal-visible]="modalVisible"
+    [items]="items"
+    class="hidden"
+  ></app-search-modal>
+</div>
+@if(formField?.required && !initialClose){
+  <div class="red-txt">
+      {{ formField?.label }} is required field.
+  </div>
+}

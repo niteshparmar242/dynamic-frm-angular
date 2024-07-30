@@ -1,0 +1,22 @@
+.list-items{
+    padding: 10px 5px;
+   
+    &.act{
+        color: #1c09c7;
+        font-weight: 500;
+    }
+    &:hover{
+        background-color: #1c09c7;
+        color: antiquewhite;
+    }
+}
+
+.modal{
+    border: 1px solid #e8e8e8;
+    box-shadow: 2px 2px 8px #e8e8e8;
+    height: 300px;
+    overflow-y: scroll;
+  }
+.checkItem{
+    padding: 10px 5px;
+}

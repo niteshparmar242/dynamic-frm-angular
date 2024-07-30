@@ -1,0 +1,8 @@
+<div class="chip-list">
+    @for (item of listOfChip; track $index) {
+        <div class="button-container">
+            <span class="button-text">{{item}}</span>
+            <span (click)="removeChip(item)" class="button-close">✕</span>
+          </div>
+    }
+</div>

@@ -1,0 +1,28 @@
+<div class="modal">
+  <div class="modal-content">
+    <input
+      class="inpt"
+      type="text"
+      [(ngModel)]="searchText"
+      (input)="filterItems()"
+      placeholder="🔎 Search"
+    />
+
+    @if (multiSelect) { @for (item of filteredItems; track item){
+    <div class="checkItem" (click)="selectMultiple(item, $event)">
+      <input type="checkbox" [id]="item" [name]="item" [value]="item" />
+      <label [for]="item"> {{ item }}</label
+      ><br />
+    </div>
+
+    } }@else { @for (item of filteredItems; track item){
+    <p
+      (click)="getSelectedItem(item)"
+      [class.act]="item == selectedItem"
+      class="list-items"
+    >
+      {{ item }}
+    </p>
+    } }
+  </div>
+</div>

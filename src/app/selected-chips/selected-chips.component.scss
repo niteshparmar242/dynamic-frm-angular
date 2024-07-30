@@ -1,0 +1,27 @@
+.chip-list{
+    // display: flex;
+.button-container {
+    display: inline-flex;
+    align-items: center;
+    background-color: #e7ebf0;
+    border: 1px solid #d3d9df;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 10px;
+
+    .button-text {
+        margin-right: 10px;
+        color: #333;
+    }
+
+    .button-close {
+        color: #999; 
+        cursor: pointer;
+
+        &:hover {
+            color: #666; 
+        }
+    }
+}
+}

@@ -1,0 +1,34 @@
+@for(formField of dataForForm; track formField){ @if(formField.fieldType ==
+'textbox'){
+    <br><br>
+<app-text-ar [formField]="formField" (valueChange)="handleValueChange($event)"></app-text-ar>
+}@else if(formField.fieldType == 'textbox'){
+<br /><br />
+<app-single-drop-down
+  (selectedItemArrayHandler)="getSingleDropVal($event)"
+  [items]="items"
+  [formField]="formField"
+></app-single-drop-down>
+}@else if(formField.fieldType == 'singleDropdown'){
+<br /><br />
+<app-single-drop-down
+  (selectedItemArrayHandler)="getSingleDropVal($event)"
+  [items]="items"
+  [formField]="formField"
+></app-single-drop-down>
+}@else if(formField.fieldType == 'multiDropdown'){
+<br /><br />
+<app-multi-drop-down
+  (selectedItemArrayHandler)="getMultiDropVal($event)"
+  [items]="items"
+  [formField]="formField"
+></app-multi-drop-down>
+}
+
+<br /><br />
+} @if(err && !showMessage){
+<p style="color: red">Form is not valid</p>
+} @if(showMessage){
+<p style="color: green">Submitted Successfully in Console.</p>
+}
+<button class="blue-button" (click)="clickToConsoleData()">Create</button>

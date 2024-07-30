@@ -1,0 +1,27 @@
+
+<div class="field-wrap">
+    <div class="label-name">{{formField?.label}}@if(formField?.required){<span class="red-txt">*</span>} </div>
+    @if (toolMessage) {
+        <div class="tl-tp">
+          <app-tool-tip [toolMessage]="toolMessage"></app-tool-tip>
+      </div>
+      }
+    <div class="input-container">
+        <input
+                name="inputField"
+                class="inpt"
+                type="text"
+                [(ngModel)]="inputValue"
+                #inputField="ngModel"
+                [required]="formField?.required"
+                [placeholder]="formField?.placeholder ?? 'Your Answer'"
+                (ngModelChange)="onInputChange($event)"
+            >
+    </div>
+    @if(inputField.touched && inputField.invalid && formField?.required){
+        <div class="red-txt">
+            {{ formField?.label }} is required field.
+        </div>
+    }
+    
+</div>

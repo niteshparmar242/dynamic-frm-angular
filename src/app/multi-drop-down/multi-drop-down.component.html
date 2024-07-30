@@ -1,0 +1,37 @@
+<div class="single-drop-down">
+  <div class="label">{{ formField?.label }}@if(formField?.required){<span class="red-txt">*</span>}</div>
+  @if (toolMessage) {
+    <div class="tl-tp">
+      <app-tool-tip [toolMessage]="toolMessage"></app-tool-tip>
+  </div>
+  }
+  <div class="input-container" (click)="openModal()">
+    @if((selectedItemArray.length)<=0){<span>{{formField.placeholder}}</span>}
+    <div class="chip-multi">
+      <app-selected-chips [listOfChip]="inputArrayofChip"></app-selected-chips>
+    </div>
+    @if(lengthToShow>0){
+    <span class="more">+{{ lengthToShow }} more</span>
+    }
+    <div class="toggle-icon" [class.up]="modalVisible">&#9650;</div>
+  </div>
+  <div class="flx-con">
+    <app-search-modal
+      (selectedItemHandler)="getSelectedValue($event)"
+      (closeModalHandler)="closeModal($event)"
+      [class.modal-visible]="modalVisible"
+      [multiSelect]="true"
+      [items]="items"
+      (selectedItemArrayHandler)="getSelectedItemArray($event)"
+      class="hidden"
+    ></app-search-modal>
+    <div class="chips-list">
+      <app-selected-chips [listOfChip]="selectedItemArray" (handleRemovedChip)="updateListofChip($event)" [class.modal-visible]="modalVisible" class="hidden"></app-selected-chips>
+    </div>
+  </div>
+</div>
+@if(formField?.required && !initialClose){
+  <div class="red-txt">
+      {{ formField?.label }} is required field.
+  </div>
+}
