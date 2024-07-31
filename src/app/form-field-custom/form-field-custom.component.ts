@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TextArComponent } from '../text-ar/text-ar.component';
 import { SingleDropDownComponent } from '../single-drop-down/single-drop-down.component';
 import { SelectedChipsComponent } from '../selected-chips/selected-chips.component';
